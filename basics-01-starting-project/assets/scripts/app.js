@@ -13,7 +13,24 @@ function sutract() {
   const result = currentResult - getUserInput();
   currentResult = result;
   outputResult(result, currentDescription);
+}
 
+function multiply() {
+  const currentDescription = getUserDescription("*");
+  const result = currentResult * getUserInput();
+  currentResult = result;
+  outputResult(result, currentDescription);
+}
+
+function divide() {
+  if (getUserInput() > 0) {
+    const currentDescription = getUserDescription("/");
+    const result = currentResult / getUserInput();
+    currentResult = result;
+    outputResult(result, currentDescription);
+  } else {
+    alert("diviend needs to be greater than 0");
+  }
 }
 
 function getUserInput() {
@@ -26,4 +43,6 @@ function getUserDescription(operator) {
   );
 }
 addBtn.addEventListener("click", add);
-subtractBtn.addEventListener("click",sutract);
+subtractBtn.addEventListener("click", sutract);
+multiplyBtn.addEventListener("click", multiply);
+divideBtn.addEventListener("click", divide);
