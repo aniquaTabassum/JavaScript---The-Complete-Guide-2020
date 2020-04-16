@@ -1,11 +1,12 @@
 const defaultResult = 0;
 let currentResult = defaultResult;
-
+let entriesLog = [];
 function add() {
   const currentDescription = getUserDescription("+");
   const result = currentResult + getUserInput();
   currentResult = result;
   outputResult(result, currentDescription);
+  enterIntoLog(currentDescription);
 }
 
 function sutract() {
@@ -13,6 +14,7 @@ function sutract() {
   const result = currentResult - getUserInput();
   currentResult = result;
   outputResult(result, currentDescription);
+  enterIntoLog(currentDescription);
 }
 
 function multiply() {
@@ -20,6 +22,7 @@ function multiply() {
   const result = currentResult * getUserInput();
   currentResult = result;
   outputResult(result, currentDescription);
+  enterIntoLog(currentDescription);
 }
 
 function divide() {
@@ -28,6 +31,7 @@ function divide() {
     const result = currentResult / getUserInput();
     currentResult = result;
     outputResult(result, currentDescription);
+    enterIntoLog(currentDescription);
   } else {
     alert("diviend needs to be greater than 0");
   }
@@ -41,6 +45,12 @@ function getUserDescription(operator) {
   return (
     currentResult.toString() + " " + operator + " " + getUserInput().toString()
   );
+}
+
+function enterIntoLog(operation)
+{
+  entriesLog.push(operation);
+  console.log(entriesLog);
 }
 addBtn.addEventListener("click", add);
 subtractBtn.addEventListener("click", sutract);
