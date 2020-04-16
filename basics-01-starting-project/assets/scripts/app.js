@@ -1,10 +1,29 @@
 const defaultResult = 0;
 let currentResult = defaultResult;
-currentDescription = "";
+
 function add() {
-  const result = currentResult + parseInt(userInput.value);
+  const currentDescription = getUserDescription("+");
+  const result = currentResult + getUserInput();
+  currentResult = result;
   outputResult(result, currentDescription);
-  
 }
 
-addBtn.addEventListener('click',add);
+function sutract() {
+  const currentDescription = getUserDescription("-");
+  const result = currentResult - getUserInput();
+  currentResult = result;
+  outputResult(result, currentDescription);
+
+}
+
+function getUserInput() {
+  return parseInt(userInput.value);
+}
+
+function getUserDescription(operator) {
+  return (
+    currentResult.toString() + " " + operator + " " + getUserInput().toString()
+  );
+}
+addBtn.addEventListener("click", add);
+subtractBtn.addEventListener("click",sutract);
