@@ -3,35 +3,55 @@ let currentResult = defaultResult;
 let entriesLog = [];
 function add() {
   const currentDescription = getUserDescription("+");
-  const result = currentResult + getUserInput();
-  currentResult = result;
+  const result = currentResult + getUserInput(); 
   outputResult(result, currentDescription);
-  enterIntoLog(currentDescription);
+  var logEntry =  {
+    name : "ADD",
+    number1 : currentResult,
+    number2 : getUserInput()
+  };
+  enterIntoLog(logEntry);
+  currentResult = result;
 }
 
 function sutract() {
   const currentDescription = getUserDescription("-");
   const result = currentResult - getUserInput();
-  currentResult = result;
   outputResult(result, currentDescription);
-  enterIntoLog(currentDescription);
+  var logEntry =  {
+    name : "SUBTRACT",
+    number1 : currentResult,
+    number2 : getUserInput()
+  };
+  enterIntoLog(logEntry);
+  currentResult = result;
 }
 
 function multiply() {
   const currentDescription = getUserDescription("*");
   const result = currentResult * getUserInput();
-  currentResult = result;
   outputResult(result, currentDescription);
-  enterIntoLog(currentDescription);
+  var logEntry =  {
+    name : "ADD",
+    number1 : currentResult,
+    number2 : getUserInput()
+  };
+  enterIntoLog(logEntry);
+  currentResult = result;
 }
 
 function divide() {
   if (getUserInput() > 0) {
     const currentDescription = getUserDescription("/");
     const result = currentResult / getUserInput();
-    currentResult = result;
     outputResult(result, currentDescription);
-    enterIntoLog(currentDescription);
+    var logEntry =  {
+      name : "ADD",
+      number1 : currentResult,
+      number2 : getUserInput()
+    };
+    enterIntoLog(logEntry);
+    currentResult = result;
   } else {
     alert("diviend needs to be greater than 0");
   }
